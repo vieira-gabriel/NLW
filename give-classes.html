@@ -15,6 +15,10 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
 
+
+    <!-- O script entra com a parte de javascript . Caso não tenha o defer e src, precisa estar no final de body pra os aquivos chamados ja terem sido criados-->
+    <!-- O defer faz com que essa parte só seja lida pelo compilador ao final-->
+    <script src="/script/addField.js" defer></script>
 </head>
 <body id="page-give-classes">
 
@@ -81,9 +85,9 @@
                     </div>
                 </fieldset>
 
-                <fieldset id="schedule-item">
+                <fieldset id="schedule-items">
                     <legend>Horários disponíveis
-                        <button id="add-time">+ Novo horário</button>
+                        <button type="button" id="add-time">+ Novo horário</button>
                     </legend>
 
                     <div class="schedule-item">
