@@ -182,6 +182,10 @@
         margin-bottom: 0;
     }
 
+    #search-teachers button {
+        margin-top: 5.6rem;
+    }
+
     .teacher-item > p {
         padding: 0 32px;
     }
