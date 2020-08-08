@@ -1,0 +1,26 @@
+{
+  "name": "NLW",
+  "version": "1.0.0",
+  "description": "Reposirorio para exercitar atividades passadas na segunda NLW",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vieira-gabriel/NLW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vieira-gabriel/NLW/issues"
+  },
+  "homepage": "https://github.com/vieira-gabriel/NLW#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
