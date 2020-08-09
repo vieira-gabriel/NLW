@@ -46,6 +46,11 @@ const weekdays = [
     "Sábado",
 ]
 
+function getSubject(subjectNumber){
+    const position = +subjectNumber -1 // O + na frente do subjectNumber garante 
+    return subjects[position]
+}
+
 function pageLanding(req, res) {
     return res.render("index.html") // O "render, diferente do sendFiles, usa as configurações do nunjucks"
 }
@@ -56,7 +61,21 @@ function pageStudy(req, res){
 }
 
 function pageGiveClasses(req, res){
-    return res.render("give-classes.html")
+    const data = req.query
+
+    // Transforma as chaves em um array, logo se ele não tem dados, o array será vazio
+    const isNotEmpty = Object.keys(data).length > 0
+
+    if (isNotEmpty) {
+
+        data.subject = getSubject(data.subject)
+        // Adiciona data ao vetor
+        proffys.push(data)
+
+        return res.redirect("/study")
+    }
+
+    return res.render("give-classes.html", { subjects, weekdays })
 }
 
 const express = require('express')
