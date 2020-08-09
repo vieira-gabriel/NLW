@@ -34,35 +34,26 @@
                         <label for="subject">Matéria</label>
                         <select name="subject" id="subject">
                             <option value="" disabled="" hidden="">Selecione uma opção</option> <!-- Disabled faz com que a opção n possa ser selecionada. A tag hidden esconde a opção na visual-->
-                            <option value="1">Artes</option>
-                            <option value="2">Biologia</option>
-                            <option value="3">Ciências</option>
-                            <option value="4">Educação física</option>
-                            <option value="5">Física</option>
-                            <option value="6">Geografia</option>
-                            <option value="7">História</option>
-                            <option value="8">Matemática</option>
-                            <option value="9">Português</option>
-                            <option value="10">Química</option>
+                            
+                            {%for subject in subjects %}
+                                <option value="{{loop.index}}" {{ "selected" if filters.subject == loop.index }}>{{subject}}</option>
+                            {%endfor%}
                         </select>
                     </div>
                     <div class="select-block">
                         <label for="weekday">Dia da semana</label>
                         <select name="weekday" id="weekday">
                             <option value="" disabled="" hidden="">Selecione uma opção</option> <!-- Disabled faz com que a opção n possa ser selecionada. A tag hidden esconde a opção na visual-->
-                            <option value="0">Domingo</option>
-                            <option value="1">Segunda</option>
-                            <option value="2">Terça</option>
-                            <option value="3">Quarta</option>
-                            <option value="4">Quinta</option>
-                            <option value="5">Sexta</option>
-                            <option value="6">Sábado</option>
+                            <!-- O loop.index0 começa  a contar do 0, n do 1 -->
+                            {%for weekday in weekdays %}
+                                <option value="{{loop.index}}" {{ "selected" if filters.weekday == loop.index }}>{{weekday}}</option>
+                            {%endfor%}
                         </select>
                     </div>
                     <div class="input-block">
                         <label for="time">Hora</label>
-                        <input name="time" id="time" type="time">
-                    </div>
+                        <input name="time" id="time" type="time" value="{{filters.time}}">
+                      </div>
                     <button type="submit">Filtrar</button>
                 </form>
             </div>
