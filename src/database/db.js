@@ -24,7 +24,7 @@ function execute(db) {
             weekday INTEGER,
             time_from INTEGER,
             time_to INTEGER
-        )
+        );
     `)
 }
 

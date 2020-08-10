@@ -10,7 +10,7 @@ async function pageStudy(req, res){
     const filters = req.query
 
     if(!filters.subject || !filters.weekday || !filters.time){
-        return res.render("study.html", { filters, subjects, weekdays })
+        return res.render("study.html", { filters, subjects, weekdays });
     }
 
     // Converter horas em minutos
@@ -20,7 +20,7 @@ async function pageStudy(req, res){
         SELECT classes.*, proffys.*
         FROM proffys
         JOIN classes ON (classes.proffy_id = proffys.id)
-        WHERE EXISTS(
+        WHERE EXISTS (
             SELECT class_schedule.*
             FROM class_schedule
             WHERE class_schedule.class_id = classes.id
@@ -56,7 +56,7 @@ async function saveClasses(req,res) {
 
     const proffyValue = {
         name: req.body.name,
-        avatar: req.body.avarat,
+        avatar: req.body.avatar,
         whatsapp: req.body.whatsapp,
         bio: req.body.bio
     }
@@ -72,7 +72,7 @@ async function saveClasses(req,res) {
             time_from: convertHoursToMinutes(req.body.time_from[index]),
             time_to: convertHoursToMinutes(req.body.time_to[index])
         }
-    })
+    });
 
     try {
         const db = await Database
@@ -81,10 +81,10 @@ async function saveClasses(req,res) {
         let queryString = "?subject=" + req.body.subject // let pode ser modificado a qualquer momento
         queryString += "&weekday=" + req.body.weekday[0]
         queryString += "&time=" + req.body.time_from[0]
-        return res.redirect("/study")
+        return res.redirect("/study");
         
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 
 }

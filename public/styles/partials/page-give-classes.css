@@ -46,7 +46,7 @@
     transition: 0.2s;
 }
 
-#page-give-classes fieldset legend button:hove {
+#page-give-classes fieldset legend button:hover {
     transform: translateY(-5px);
     color: var(--color-primary-dark);
 }
